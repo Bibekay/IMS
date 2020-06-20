@@ -9,5 +9,4 @@ public class StrictModeClass {
 
         android.os.StrictMode.setThreadPolicy(policy);
     }
-
 }

@@ -24,7 +24,7 @@ public class SignupBLL {
         try {
             Response<SignUpResponse> signupResponse = UsersCall.execute();
             if (signupResponse.isSuccessful() &&
-                    signupResponse.body().getStatus().equals("Registration Successful")) {
+                    signupResponse.body().getStatus().equals("Signup Successful")) {
 
 //                url.token += signupResponse.body().getToken();
 //                // Url.Cookie = imageResponseResponse.headers().get("Set-Cookie");

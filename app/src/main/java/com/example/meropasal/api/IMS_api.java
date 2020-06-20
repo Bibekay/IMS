@@ -5,10 +5,17 @@ import com.example.meropasal.serverresponse.SignUpResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
 public interface IMS_api {
     //  for Users model //
     @POST("users/signup")
     Call<SignUpResponse> signup(@Body Users users);
+
+    @FormUrlEncoded
+    @POST("users/login")
+    Call<SignUpResponse> checkUser(@Field("username") String username, @Field("password") String password);
+
 }
