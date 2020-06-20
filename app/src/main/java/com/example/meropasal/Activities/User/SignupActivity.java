@@ -9,34 +9,27 @@ import android.widget.Button;
 
 import com.example.meropasal.R;
 
-public class LoginActivity extends AppCompatActivity {
-
-    private Button btnsignup;
+public class SignupActivity extends AppCompatActivity {
+    private Button login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_signup);
 
-        btnsignup = findViewById(R.id.btnsignup);
+        login = findViewById(R.id.btnAlreadylogin);
 
-        btnsignup.setOnClickListener(new View.OnClickListener() {
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                openSignup();
-
+                openLoginpage();
             }
 
-            private void openSignup() {
-
-                Intent openSignup = new Intent(LoginActivity.this, SignupActivity.class);
-                startActivity(openSignup);
+            private void openLoginpage() {
+                Intent goToLogin = new Intent(SignupActivity.this, LoginActivity.class);
+                startActivity(goToLogin);
             }
-
         });
-
-
 
     }
 }
