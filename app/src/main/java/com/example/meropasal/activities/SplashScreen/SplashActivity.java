@@ -1,4 +1,4 @@
-package com.example.meropasal.Activities.SplashScreen;
+package com.example.meropasal.activities.SplashScreen;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,8 +6,7 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.meropasal.Activities.User.LoginActivity;
-import com.example.meropasal.MainActivity;
+import com.example.meropasal.activities.User.LoginActivity;
 import com.example.meropasal.R;
 
 public class SplashActivity extends AppCompatActivity {

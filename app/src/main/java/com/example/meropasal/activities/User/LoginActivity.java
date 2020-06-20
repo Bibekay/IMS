@@ -1,4 +1,4 @@
-package com.example.meropasal.Activities.User;
+package com.example.meropasal.activities.User;
 
 import androidx.appcompat.app.AppCompatActivity;
 

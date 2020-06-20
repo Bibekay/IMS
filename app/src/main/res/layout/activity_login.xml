@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.User.LoginActivity">
+    tools:context=".activities.User.LoginActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -59,7 +59,7 @@
                 android:layout_height="40dp"
                 android:layout_below="@+id/imageView"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="40dp"
                 android:gravity="center"
                 android:layout_marginRight="30dp">
 
