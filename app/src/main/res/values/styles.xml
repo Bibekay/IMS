@@ -10,4 +10,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <!-- Menu Style -->
+
+    <style name="navigationTheme">
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorControlHighlight">@color/colorPrimary</item>
+
+    </style>
+
+
 </resources>

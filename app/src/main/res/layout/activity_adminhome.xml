@@ -5,19 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.admin.AdminhomeActivity"
-    tools:openDrawer="start">
+
+    android:id="@+id/drawer_layout">
 
     <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:background="@color/white"
+        android:theme="@style/navigationTheme"
         android:layout_gravity="start"
         app:headerLayout="@layout/adminmenu_header"
         app:menu="@menu/admin_menu"/>
 
     <LinearLayout
+        android:id="@+id/content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -34,5 +39,17 @@
             android:src="@drawable/menu_icon" />
     </RelativeLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="30dp"/>
+
+    </LinearLayout>
 </androidx.drawerlayout.widget.DrawerLayout>
+
+
 
