@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.meropasal.MainActivity;
 import com.example.meropasal.R;
+import com.example.meropasal.activities.admin.AdminhomeActivity;
 import com.example.meropasal.bll.LoginBLL;
 import com.example.meropasal.strictmode.StrictModeClass;
 import com.example.meropasal.url.url;
@@ -103,7 +104,7 @@ public class LoginActivity extends AppCompatActivity {
                                                         //                editor.putString("name",  username);
                                                         //                editor.putString("password",  password);
                                                         //                editor.commit();
-             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+             Intent intent = new Intent(LoginActivity.this, AdminhomeActivity.class);
              startActivity(intent);
              finish();
 
