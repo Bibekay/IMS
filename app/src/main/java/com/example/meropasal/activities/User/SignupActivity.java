@@ -53,11 +53,11 @@ public class SignupActivity extends AppCompatActivity {
 
                                          private void register() {
 
-                                             String fullname = etfullname.getText().toString();
-                                             String username = etusername.getText().toString();
-                                             String contact = etcontact.getText().toString();
-                                             String email = etemail.getText().toString();
-                                             String password = etpassword.getText().toString();
+                                             String fullname = etfullname.getText().toString().trim();
+                                             String username = etusername.getText().toString().trim();
+                                             String contact = etcontact.getText().toString().trim();
+                                             String email = etemail.getText().toString().trim();
+                                             String password = etpassword.getText().toString().trim();
                                              Users users = new Users(fullname, username, contact, email, password);
 
                                              IMS_api imsApi = url.getInstance().create(IMS_api.class);
