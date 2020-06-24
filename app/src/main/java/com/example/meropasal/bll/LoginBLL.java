@@ -12,6 +12,7 @@ import retrofit2.Response;
 public class LoginBLL {
     boolean isSuccess = false;
 
+
     public boolean checkUser(String username, String password) {
 
         IMS_api imsApi = url.getInstance().create(IMS_api.class);
@@ -20,9 +21,10 @@ public class LoginBLL {
         try {
             Response<SignUpResponse> loginResponse = UsersCall.execute();
             if (loginResponse.isSuccessful() &&
-                    loginResponse.body().getStatus().equals("Login Successful")) {
+                    loginResponse.body().getStatus().equals("Login Successfull")) {
 
                 url.token += loginResponse.body().getToken();
+                //url.admin += loginResponse.body().getAdmin();
                 // Url.Cookie = imageResponseResponse.headers().get("Set-Cookie");
                 isSuccess = true;
             }
@@ -31,5 +33,30 @@ public class LoginBLL {
         }
         return isSuccess;
     }
+
+    public boolean checkadmin(String username, String password) {
+
+        IMS_api imsApi = url.getInstance().create(IMS_api.class);
+        Call<SignUpResponse> UsersCall = imsApi.checkUser(username, password);
+
+        try {
+            Response<SignUpResponse> loginResponse = UsersCall.execute();
+            if (loginResponse.isSuccessful() &&
+                    loginResponse.body().getStatus().equals("isadmin")) {
+
+                url.token += loginResponse.body().getToken();
+                //url.admin += loginResponse.body().getAdmin();
+                // Url.Cookie = imageResponseResponse.headers().get("Set-Cookie");
+                isSuccess = true;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return isSuccess;
+    }
+
+
+
+
 
 }

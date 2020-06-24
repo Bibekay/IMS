@@ -95,25 +95,45 @@ public class LoginActivity extends AppCompatActivity {
         String username = etusername.getText().toString().trim();
         String password = etpassword.getText().toString().trim();
 
+
         LoginBLL loginBLL = new LoginBLL();
         StrictModeClass.StrictMode();
         if (loginBLL.checkUser(username, password)) {
+
                                                         //                SharedPreferences sharedPreferences = getSharedPreferences("IMS",MODE_PRIVATE);
                                                         //                SharedPreferences.Editor editor = sharedPreferences.edit();
                                                         //                editor.putString("token", url.token);
                                                         //                editor.putString("name",  username);
                                                         //                editor.putString("password",  password);
                                                         //                editor.commit();
-             Intent intent = new Intent(LoginActivity.this, AdminhomeActivity.class);
+             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
              startActivity(intent);
              finish();
 
         }
         else {
+            if (loginBLL.checkadmin(username, password)) {
+
+                //                SharedPreferences sharedPreferences = getSharedPreferences("IMS",MODE_PRIVATE);
+                //                SharedPreferences.Editor editor = sharedPreferences.edit();
+                //                editor.putString("token", url.token);
+                //                editor.putString("name",  username);
+                //                editor.putString("password",  password);
+                //                editor.commit();
+                Intent intent = new Intent(LoginActivity.this, AdminhomeActivity.class);
+                startActivity(intent);
+                finish();
+
+            } else {
                 Toast.makeText(this, "Username or Password doesnot match", Toast.LENGTH_SHORT).show();
                 vibrate.vibrate(1000);
                 etusername.requestFocus();
-           }
+            }
+        }
+
+
+
+
     }
 }
 

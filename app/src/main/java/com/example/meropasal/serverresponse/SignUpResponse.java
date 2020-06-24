@@ -5,9 +5,12 @@ public class SignUpResponse {
     private  String token;
 
 
+
+
     public SignUpResponse(String status, String token) {
         this.status = status;
         this.token = token;
+
     }
 
     public String getStatus() {
