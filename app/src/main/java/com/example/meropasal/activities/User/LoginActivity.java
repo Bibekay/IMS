@@ -55,13 +55,33 @@ public class LoginActivity extends AppCompatActivity {
 
         });
 
-//        SharedPreferences sharedPreferences = getSharedPreferences("IMS",MODE_PRIVATE);
-//        String token = sharedPreferences.getString("token","empty");
-//        if(!token.equals("empty")){
+        SharedPreferences sharedPreferences = getSharedPreferences("IMS",MODE_PRIVATE);
+        String token = sharedPreferences.getString("token","empty");
+        String status = sharedPreferences.getString("status","isadmin");
+
+
+        if(!token.equals("empty") && status.equals("isadmin")){
+            url.token = token;
+            url.status = status;
+            Intent intent = new Intent(LoginActivity.this, AdminhomeActivity.class);
+            startActivity(intent);
+        }
+
+       else if(!token.equals("empty") && !status.equals("isadmin")){
+            url.token = token;
+            url.status = status;
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+        }
+//         else {
 //            url.token = token;
+//            url.status = status;
 //            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 //            startActivity(intent);
 //        }
+
+
+
 
 
         btnlogin.setOnClickListener(new View.OnClickListener() {
@@ -100,12 +120,13 @@ public class LoginActivity extends AppCompatActivity {
         StrictModeClass.StrictMode();
         if (loginBLL.checkUser(username, password)) {
 
-                                                        //                SharedPreferences sharedPreferences = getSharedPreferences("IMS",MODE_PRIVATE);
-                                                        //                SharedPreferences.Editor editor = sharedPreferences.edit();
-                                                        //                editor.putString("token", url.token);
-                                                        //                editor.putString("name",  username);
-                                                        //                editor.putString("password",  password);
-                                                        //                editor.commit();
+            SharedPreferences sharedPreferences = getSharedPreferences("IMS",MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("token", url.token);
+            editor.putString("status", url.status);
+            editor.putString("Login Successfull",  username);
+            editor.putString("password",  password);
+            editor.commit();
              Intent intent = new Intent(LoginActivity.this, MainActivity.class);
              startActivity(intent);
              finish();
@@ -114,12 +135,13 @@ public class LoginActivity extends AppCompatActivity {
         else {
             if (loginBLL.checkadmin(username, password)) {
 
-                //                SharedPreferences sharedPreferences = getSharedPreferences("IMS",MODE_PRIVATE);
-                //                SharedPreferences.Editor editor = sharedPreferences.edit();
-                //                editor.putString("token", url.token);
-                //                editor.putString("name",  username);
-                //                editor.putString("password",  password);
-                //                editor.commit();
+                SharedPreferences sharedPreferences = getSharedPreferences("IMS",MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("token", url.token);
+                editor.putString("isadmin", url.status);
+                editor.putString("name",  username);
+                editor.putString("password",  password);
+                editor.commit();
                 Intent intent = new Intent(LoginActivity.this, AdminhomeActivity.class);
                 startActivity(intent);
                 finish();

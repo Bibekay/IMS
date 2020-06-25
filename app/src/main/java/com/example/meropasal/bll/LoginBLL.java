@@ -14,7 +14,6 @@ public class LoginBLL {
 
 
     public boolean checkUser(String username, String password) {
-
         IMS_api imsApi = url.getInstance().create(IMS_api.class);
         Call<SignUpResponse> UsersCall = imsApi.checkUser(username, password);
 

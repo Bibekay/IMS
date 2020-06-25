@@ -5,16 +5,28 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.AlertDialog;
+import android.content.ClipData;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.meropasal.R;
+import com.example.meropasal.activities.User.LoginActivity;
+import com.example.meropasal.url.url;
 import com.google.android.material.navigation.NavigationView;
 
+import static com.example.meropasal.R.id.logout;
+
 public class AdminhomeActivity extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener{
+
+
 
     static  final float END_SCALE = 0.7f;
     ImageView menuIcon;
@@ -41,7 +53,11 @@ public class AdminhomeActivity extends AppCompatActivity implements  NavigationV
 
         navigationDrawer();
 
+
+
     }
+
+
 
     //Navigation drawer function
 
@@ -99,4 +115,6 @@ public class AdminhomeActivity extends AppCompatActivity implements  NavigationV
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         return true;
     }
+
+
 }
