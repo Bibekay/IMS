@@ -14,9 +14,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".activities.admin.AdminhomeActivity"></activity>
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".activities.User.UserdashActivity"></activity>
+        <activity android:name=".activities.admin.AdminhomeActivity" />
         <activity android:name=".activities.User.SignupActivity" />
         <activity android:name=".activities.User.LoginActivity" />
         <activity android:name=".MainActivity" />

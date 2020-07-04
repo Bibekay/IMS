@@ -8,12 +8,13 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="152dp"
-        android:text="Hello Users"
-        android:textSize="45dp"
-        android:layout_gravity="center_horizontal" />
+        android:hint="Hello Users"
+        android:textColor="@color/black"
+        android:layout_gravity="center" />
 
     <Button
         android:layout_marginTop="30dp"
@@ -24,5 +25,15 @@
         android:layout_gravity="center_horizontal"
 
   />
+
+    <Button
+        android:layout_marginTop="30dp"
+        android:id="@+id/lgout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:layout_gravity="center_horizontal"
+
+        />
 
 </LinearLayout>

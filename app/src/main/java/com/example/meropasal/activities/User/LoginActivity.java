@@ -70,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
        else if(!token.equals("empty") && !status.equals("isadmin")){
             url.token = token;
             url.status = status;
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            Intent intent = new Intent(LoginActivity.this, UserdashActivity.class);
             startActivity(intent);
         }
 //         else {
@@ -124,10 +124,10 @@ public class LoginActivity extends AppCompatActivity {
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("token", url.token);
             editor.putString("status", url.status);
-            editor.putString("Login Successfull",  username);
+            editor.putString("username",  username);
             editor.putString("password",  password);
             editor.commit();
-             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+             Intent intent = new Intent(LoginActivity.this, UserdashActivity.class);
              startActivity(intent);
              finish();
 
@@ -139,7 +139,7 @@ public class LoginActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("token", url.token);
                 editor.putString("isadmin", url.status);
-                editor.putString("name",  username);
+                editor.putString("username",  username);
                 editor.putString("password",  password);
                 editor.commit();
                 Intent intent = new Intent(LoginActivity.this, AdminhomeActivity.class);
