@@ -38,7 +38,8 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:padding="5dp"
-                android:src="@drawable/add" />
+                android:tint="@color/black"
+                android:src="@drawable/ic_add" />
 
             <ImageView
                 android:id="@+id/menu_icon"
@@ -47,8 +48,8 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:padding="5dp"
-
-                android:src="@drawable/menu_icon" />
+                android:tint="@color/black"
+                android:src="@drawable/ic_menu" />
 
         </RelativeLayout>
 
