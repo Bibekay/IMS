@@ -260,6 +260,7 @@
                     </LinearLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_features"
                         android:layout_width="match_parent"
                         android:layout_height="260dp"
                         android:layout_toRightOf="@+id/features_products"
@@ -302,6 +303,7 @@
                     </RelativeLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_recentlyAddedProducts"
                         android:layout_width="match_parent"
                         android:layout_height="100dp" />
 

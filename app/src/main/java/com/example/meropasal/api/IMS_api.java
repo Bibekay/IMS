@@ -1,7 +1,10 @@
 package com.example.meropasal.api;
 
+import com.example.meropasal.models.Products;
 import com.example.meropasal.models.Users;
 import com.example.meropasal.serverresponse.SignUpResponse;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -22,4 +25,13 @@ public interface IMS_api {
 
     @GET("users/me")
     Call<Users> getUserDetails(@Header("Authorization") String token);
+
+
+
+    //For Products model //
+
+    @GET("products/product")
+    Call<List<Products>> getProducts(@Header("Authorization") String token);
+
+
 }
