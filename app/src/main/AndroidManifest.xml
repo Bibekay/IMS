@@ -16,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".adapter.UserdisplayproductAdapter"></activity>
+        <activity android:name=".activities.admin.ProductActivity"></activity>
+        <activity android:name=".adapter.UserdisplayproductAdapter" />
         <activity android:name=".activities.User.UserdashActivity" />
         <activity android:name=".activities.admin.AdminhomeActivity" />
         <activity android:name=".activities.User.SignupActivity" />
