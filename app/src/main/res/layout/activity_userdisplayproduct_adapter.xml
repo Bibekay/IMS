@@ -15,122 +15,144 @@
         android:orientation="vertical">
 
         <RelativeLayout
+            android:id="@+id/rv_title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/black">
+            android:layout_height="100dp"
+            android:background="@color/colorPrimary">
 
             <TextView
-                android:id="@+id/user_username"
+                android:id="@+id/tv_productname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint=" Username"
+                android:hint=" Product Name"
                 android:textSize="18sp"
                 android:padding="16dp"
                 android:textColor="@color/white"/>
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/imguserimage"
-                android:layout_width="46dp"
-                android:layout_height="45dp"
+                android:id="@+id/iv_product"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="1dp"
                 android:src="@drawable/logo"
                 android:layout_marginTop="5dp"/>
 
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/expandable_layout_adminuserdetails"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/expandable_layout_adminuserdetails">
+            android:layout_height="180dp"
+         >
 
             <TextView
-                android:id="@+id/tv6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/tv_product"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
                 android:layout_marginTop="10dp"
-                android:text="Product Name"
-                android:textSize="15sp"
+                android:gravity="center"
+                android:text="Product"
+                android:fontFamily="sans-serif-medium"
+                android:textSize="20sp"
                 android:layout_marginLeft="5dp"
                 android:textColor="@color/black"/>
 
             <TextView
-                android:id="@+id/user_fullname"
+                android:id="@+id/tv_product_name"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-medium"
                 android:hint="ProductName"
-                android:textSize="10sp"
-                android:layout_marginLeft="5dp"
-                android:layout_below="@+id/tv6"
+                android:textSize="20sp"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/tv_product"
                 android:textColor="@color/black"/>
 
-
-
-
             <TextView
-                android:id="@+id/tv1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
-                android:layout_marginTop="10dp"
-                android:textSize="15sp"
+                android:id="@+id/tv_desc"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                android:textSize="20sp"
+                android:layout_alignParentLeft="true"
                 android:text="Description"
+                android:gravity="center"
                 android:textColor="@color/black"
-                android:layout_toRightOf="@+id/tv6"/>
+                android:layout_below="@+id/tv_product"/>
+
 
             <TextView
-                android:id="@+id/user_contact"
+                android:id="@+id/tv_description"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="discritpion"
-                android:textSize="10sp"
+                android:layout_height="30dp"
+                android:fontFamily="sans-serif-medium"
+                android:hint="Product Description"
                 android:layout_marginTop="5dp"
-                android:textColor="@color/black"
-                android:layout_marginLeft="80dp"
-                android:layout_below="@+id/tv1"
-                android:layout_toRightOf="@+id/tv6"/>
+                android:layout_marginLeft="15dp"
+                android:textSize="20sp"
+                android:layout_below="@+id/tv_product_name"
+                android:layout_toRightOf="@+id/tv_desc"
+                android:textColor="@color/black"/>
 
+                    <TextView
+                            android:id="@+id/tv_cost"
+                            android:layout_width="120dp"
+                            android:layout_height="30dp"
+                            android:text="Price"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:layout_marginTop="5dp"
+                            android:textColor="@color/black"
+                            android:layout_alignParentLeft="true"
+                            android:layout_below="@+id/tv_desc"
+                           />
 
-            <TextView
-                android:id="@+id/tv4"
-                android:layout_width="wrap_content"
+                        <TextView
+                            android:id="@+id/tv_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:layout_below="@+id/tv_description"
+                            android:layout_toEndOf="@+id/tv_cost"
+                            android:hint=" Price"
+                            android:layout_marginLeft="15dp"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btnOrder"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_cost"
                 android:layout_marginTop="10dp"
-                android:layout_toEndOf="@id/tv1"
-                android:layout_toRightOf="@id/tv1"
-                android:layout_marginLeft="60dp"
-                android:text=" Price"
-                android:textColor="#000000"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/user_email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:hint=" Price"
+                android:background="@drawable/custombutton"
+                android:fontFamily="sans-serif-medium"
+                android:text="ORDER"
                 android:textSize="10sp"
-                android:layout_below="@+id/tv4"
-                android:layout_toRightOf="@+id/tv1"
-                android:layout_marginLeft="60dp"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="@color/black"
+                 />
 
 
-            <ImageView
-                android:padding="20dp"
-                android:id="@+id/imgdeleteuserinfo"
-                android:layout_width="46dp"
-                android:layout_height="40dp"
-                android:background="@drawable/add"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="5dp"
+            <Button
+                android:id="@+id/btnCart"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/btnOrder"
+                android:layout_below="@+id/tv_price"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/custombutton"
+                android:fontFamily="sans-serif-medium"
+                android:text="ADD  CART"
+                android:textSize="10sp"
+                android:layout_marginLeft="100dp"
+                android:textColor="@color/black"
                 />
 
-
-
-
         </RelativeLayout>
+
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>
 

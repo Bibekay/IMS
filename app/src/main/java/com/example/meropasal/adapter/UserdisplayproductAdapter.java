@@ -22,6 +22,12 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
+import static com.example.meropasal.url.url.BASE_URL;
+import static com.example.meropasal.url.url.imagePath;
+import static com.example.meropasal.url.url.token;
+
 public class UserdisplayproductAdapter extends RecyclerView.Adapter <UserdisplayproductAdapter.UserdisplayproductViewHolder> {
 
     Context mContext;
@@ -51,17 +57,18 @@ public class UserdisplayproductAdapter extends RecyclerView.Adapter <Userdisplay
     public void onBindViewHolder(@NonNull UserdisplayproductAdapter.UserdisplayproductViewHolder holder, int i) {
 
         final Products products = productsList.get(i);
-      // String imgPath = url.imagePath+Products.getProduct_image();
+
+        String imgPath = imagePath+products.getProduct_image();
+        Picasso.get().load(imgPath).into(holder.productImage);
+
         holder.p_name.setText(products.getProduct_name());
-     //   holder.p_image.setText(products.getProduct_image());
-        holder.dis.setText(products.getDescription());
-        holder.pr.setText(products.getPrice());
+        holder.productName.setText(products.getProduct_name());
+        holder.description.setText(products.getDescription());
+        holder.price.setText(products.getPrice());
 
 
-//   Picasso.get().load(imgPath).into(holder.p_image);
-
-      //  boolean isExpandble = productsList.get(i).isExpandable();
-       // holder.expandableLayout.setVisibility(isExpandble ? View.VISIBLE : View.GONE);
+        boolean isExpandble = productsList.get(i).isExpandable();
+        holder.expandableLayout.setVisibility(isExpandble ? View.VISIBLE : View.GONE);
 
     }
 
@@ -74,9 +81,8 @@ public class UserdisplayproductAdapter extends RecyclerView.Adapter <Userdisplay
 
     public class UserdisplayproductViewHolder extends RecyclerView.ViewHolder{
 
-
-        TextView p_name, dis, pr;
-        ImageView p_image;
+        CircleImageView productImage;
+        TextView productName, p_name, description, price;
         LinearLayout linearLayout;
         RelativeLayout expandableLayout;
 
@@ -84,10 +90,12 @@ public class UserdisplayproductAdapter extends RecyclerView.Adapter <Userdisplay
             super(itemView);
 
 
-            p_name = itemView.findViewById(R.id.user_fullname);
-            dis = itemView.findViewById(R.id.user_contact);
-            pr = itemView.findViewById(R.id.user_email);
-            p_image = itemView.findViewById(R.id.imguserimage);
+            productImage = itemView.findViewById(R.id.iv_product);
+            productName = itemView.findViewById(R.id.tv_product_name);
+            description = itemView.findViewById(R.id.tv_description);
+            price = itemView.findViewById(R.id.tv_price);
+            p_name = itemView.findViewById(R.id.tv_productname);
+
 
 
             linearLayout = itemView.findViewById(R.id.linear_layout_adminuserinfo);

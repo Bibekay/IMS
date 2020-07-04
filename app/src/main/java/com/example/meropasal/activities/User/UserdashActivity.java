@@ -66,6 +66,7 @@ public class UserdashActivity extends AppCompatActivity implements NavigationVie
         contentView = findViewById(R.id.content);
         recyclerView = findViewById(R.id.rv_recentlyAddedProducts);
 
+
         navigationDrawer();
         showProducts();
 
