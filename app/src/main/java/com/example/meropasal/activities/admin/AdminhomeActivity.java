@@ -195,7 +195,6 @@ public class AdminhomeActivity extends AppCompatActivity implements NavigationVi
             case R.id.product:
                 startActivity(new Intent(getApplicationContext(), ProductActivity.class));
 
-
                 break;
 
         }

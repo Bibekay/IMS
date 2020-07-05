@@ -20,6 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.meropasal.R;
+import com.example.meropasal.activities.admin.ProductActivity;
 import com.example.meropasal.adapter.UserdisplayproductAdapter;
 import com.example.meropasal.api.IMS_api;
 import com.example.meropasal.models.Products;
@@ -78,18 +79,18 @@ public class UserdashActivity extends AppCompatActivity implements NavigationVie
 
 
         IMS_api ims_api = url.getInstance().create(IMS_api.class);
-        Call<List<Products>> usersCall = ims_api.getProducts(url.token);
+        Call<List<Products>> productsCall = ims_api.getProducts(url.token);
 
 
-        usersCall.enqueue(new Callback<List<Products>>() {
+        productsCall.enqueue(new Callback<List<Products>>() {
             @Override
             public void onResponse(Call<List<Products>> call, Response<List<Products>> response) {
                 if(!response.isSuccessful()) {
                     Toast.makeText(UserdashActivity.this, "Error", Toast.LENGTH_SHORT).show();
                 }
 
-                List<Products> usersList = response.body();
-                activity.userdisplayadapter = new UserdisplayproductAdapter(UserdashActivity.this, usersList);
+                List<Products> productsList = response.body();
+                activity.userdisplayadapter = new UserdisplayproductAdapter(UserdashActivity.this, productsList);
                 recyclerView.setAdapter(userdisplayadapter);
                 recyclerView.setLayoutManager(new GridLayoutManager(UserdashActivity.this,1));
 
@@ -191,6 +192,12 @@ public class UserdashActivity extends AppCompatActivity implements NavigationVie
                 });
                 AlertDialog alert = builder.create();
                 alert.show();
+
+                break;
+
+
+            case R.id.product:
+                startActivity(new Intent(getApplicationContext(), UserproductActivity.class));
 
                 break;
 
