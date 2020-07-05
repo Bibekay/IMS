@@ -201,6 +201,11 @@ public class UserdashActivity extends AppCompatActivity implements NavigationVie
 
                 break;
 
+            case R.id.profile:
+                startActivity(new Intent(getApplicationContext(), UserprofileActivity.class));
+
+                break;
+
         }
         return true;
     }

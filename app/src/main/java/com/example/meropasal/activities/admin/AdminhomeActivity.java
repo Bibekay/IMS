@@ -22,6 +22,7 @@ import com.example.meropasal.R;
 
 import com.example.meropasal.activities.User.LoginActivity;
 import com.example.meropasal.activities.User.UserdashActivity;
+import com.example.meropasal.activities.User.UserprofileActivity;
 import com.example.meropasal.adapter.UserdisplayproductAdapter;
 import com.example.meropasal.api.IMS_api;
 import com.example.meropasal.models.Products;
@@ -199,6 +200,11 @@ public class AdminhomeActivity extends AppCompatActivity implements NavigationVi
 
             case R.id.customer:
                 startActivity(new Intent(getApplicationContext(), AdmincustomerActivity.class));
+
+                break;
+
+            case R.id.profile:
+                startActivity(new Intent(getApplicationContext(), UserprofileActivity.class));
 
                 break;
 

@@ -5,7 +5,10 @@ public class Users {
     private String username;
     private String contact;
     private String email;
-    private  String password;
+    private String password;
+    private  String birthyear;
+    private  String gender;
+    private  String image;
 
     public Users(String fullname, String username, String contact, String email, String password) {
         this.fullname = fullname;
@@ -15,6 +18,47 @@ public class Users {
         this.password = password;
     }
 
+    public Users(String fullname, String contact, String email, String birthyear, String gender, String image, int update) {
+        this.fullname = fullname;
+        this.contact = contact;
+        this.email = email;
+        this.birthyear = birthyear;
+        this.gender = gender;
+        this.image = image;
+    }
+
+    public Users(String fullname, String contact, String email, String birthyear, String gender, int updates) {
+        this.fullname = fullname;
+        this.contact = contact;
+        this.email = email;
+        this.birthyear = birthyear;
+        this.gender = gender;
+
+    }
+
+    public String getBirthyear() {
+        return birthyear;
+    }
+
+    public void setBirthyear(String birthyear) {
+        this.birthyear = birthyear;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public String getFullname() {
         return fullname;
