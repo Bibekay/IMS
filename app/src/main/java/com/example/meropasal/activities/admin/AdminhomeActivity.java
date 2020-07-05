@@ -5,6 +5,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,12 +16,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.meropasal.R;
 
 import com.example.meropasal.activities.User.LoginActivity;
+import com.example.meropasal.activities.User.UserdashActivity;
+import com.example.meropasal.adapter.UserdisplayproductAdapter;
+import com.example.meropasal.api.IMS_api;
+import com.example.meropasal.models.Products;
 import com.example.meropasal.url.url;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class AdminhomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -33,11 +46,18 @@ public class AdminhomeActivity extends AppCompatActivity implements NavigationVi
     DrawerLayout drawerLayout;
     NavigationView navigationView;
 
+    AdminhomeActivity activity;
+    UserdisplayproductAdapter userdisplayadapter;
+    private RecyclerView recyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adminhome);
 
+
+
+        activity = this;
 
         //Menu Hooks
 
@@ -45,10 +65,40 @@ public class AdminhomeActivity extends AppCompatActivity implements NavigationVi
         navigationView = findViewById(R.id.navigation_view);
         menuIcon = findViewById(R.id.menu_icon);
         contentView = findViewById(R.id.content);
-
+        recyclerView = findViewById(R.id.rv_recentlyAddedProducts);
 
         navigationDrawer();
+        showProducts();
 
+
+
+    }
+
+    private void showProducts() {
+
+        IMS_api ims_api = url.getInstance().create(IMS_api.class);
+        Call<List<Products>> usersCall = ims_api.getProducts(url.token);
+
+
+        usersCall.enqueue(new Callback<List<Products>>() {
+            @Override
+            public void onResponse(Call<List<Products>> call, Response<List<Products>> response) {
+                if(!response.isSuccessful()) {
+                    Toast.makeText(AdminhomeActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                }
+
+                List<Products> usersList = response.body();
+                activity.userdisplayadapter = new UserdisplayproductAdapter(AdminhomeActivity.this, usersList);
+                recyclerView.setAdapter(userdisplayadapter);
+                recyclerView.setLayoutManager(new GridLayoutManager(AdminhomeActivity.this,1));
+
+            }
+
+            @Override
+            public void onFailure(Call<List<Products>> call, Throwable t) {
+
+            }
+        });
 
     }
 
