@@ -15,7 +15,7 @@
         android:background="@color/white"
         android:theme="@style/navigationTheme"
         app:headerLayout="@layout/usermenu_header"
-        app:menu="@menu/admin_menu" />
+        app:menu="@menu/user_menu" />
 
 
     <LinearLayout

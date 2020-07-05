@@ -28,9 +28,9 @@
                 android:checkableBehavior="single">
 
                 <item
-                    android:id="@+id/customer"
-                    android:title="Customer"
-                    android:icon="@drawable/ic_customer"
+                    android:id="@+id/login"
+                    android:title="@string/Login"
+                    android:icon="@drawable/login"
                     />
 
                 <item

@@ -26,6 +26,9 @@ public interface IMS_api {
     @GET("users/me")
     Call<Users> getUserDetails(@Header("Authorization") String token);
 
+    @GET("users/user")
+    Call<List<Users>> getCustomerDetails(@Header("Authorization") String token);
+
 
 
     //For Products model //

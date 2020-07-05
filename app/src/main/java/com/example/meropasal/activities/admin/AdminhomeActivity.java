@@ -197,6 +197,11 @@ public class AdminhomeActivity extends AppCompatActivity implements NavigationVi
 
                 break;
 
+            case R.id.customer:
+                startActivity(new Intent(getApplicationContext(), AdmincustomerActivity.class));
+
+                break;
+
         }
         return true;
     }
