@@ -4,14 +4,17 @@ import androidx.annotation.NonNull;;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.meropasal.R;
+import com.example.meropasal.activities.admin.AdminaddproductActivity;
 import com.example.meropasal.models.Categories;
 ;
 import com.squareup.picasso.Picasso;
@@ -58,6 +61,18 @@ public class AdmincategoryAdapter extends RecyclerView.Adapter<AdmincategoryAdap
         String imgPath = imagePath + categories.getCategory_image();
         Picasso.get().load(imgPath).into(holder.categoryImage);
 
+        holder.add_product.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewProductDetails = new Intent(mContext, AdminaddproductActivity.class);
+
+                viewProductDetails.putExtra("id",categories.get_id());
+                viewProductDetails.putExtra("category_name", categories.getCategory_name());
+                mContext.startActivity(viewProductDetails);
+
+            }
+        });
+
 
     }
 
@@ -70,6 +85,7 @@ public class AdmincategoryAdapter extends RecyclerView.Adapter<AdmincategoryAdap
 
         TextView categoryName;
         ImageView categoryImage;
+        Button add_product;
 
         public AdmincategoryViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -77,6 +93,7 @@ public class AdmincategoryAdapter extends RecyclerView.Adapter<AdmincategoryAdap
 
             categoryName = itemView.findViewById(R.id.tv_categoryname);
             categoryImage = itemView.findViewById(R.id.cv_category);
+            add_product = itemView.findViewById(R.id.btnaddProduct);
 
 
         }

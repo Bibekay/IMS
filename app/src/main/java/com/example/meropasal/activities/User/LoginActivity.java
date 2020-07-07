@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
 
             private void openSignup() {
 
-                Intent openSignup = new Intent(LoginActivity.this, AdminaddproductActivity.class);
+                Intent openSignup = new Intent(LoginActivity.this, SignupActivity.class);
                 startActivity(openSignup);
             }
 
