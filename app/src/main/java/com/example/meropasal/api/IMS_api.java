@@ -1,5 +1,6 @@
 package com.example.meropasal.api;
 
+import com.example.meropasal.models.Categories;
 import com.example.meropasal.models.Products;
 import com.example.meropasal.models.Users;
 import com.example.meropasal.serverresponse.ImageResponse;
@@ -42,6 +43,11 @@ public interface IMS_api {
     Call<Users> updateUser(@Header("Authorization")String token,@Body Users users);
 
 
+
+
+    //For Categories model //
+    @GET("categories/category")
+    Call<List<Categories>> getCategories(@Header("Authorization") String token);
 
     //For Products model //
 
