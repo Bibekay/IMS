@@ -27,6 +27,7 @@ import com.squareup.picasso.Picasso;
 import java.io.File;
 import java.io.IOException;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -40,7 +41,7 @@ public class UserprofileActivity extends AppCompatActivity {
     EditText etFullname, etcontact, etEmail,etBirthyear, etGender;
     TextView tvUsername;
     Button btnUpdateprofile;
-    ImageView ivProfile;
+    CircleImageView ivProfile;
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 200;
 
     String imagePath,imageName;

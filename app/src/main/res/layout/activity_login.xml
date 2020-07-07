@@ -33,7 +33,7 @@
                 android:id="@+id/imageLayout"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                android:background="@drawable/gradiant_background"
+                android:background="@color/white"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -46,7 +46,7 @@
                     android:fontFamily="sans-serif-medium"
                     android:text="Mero Pasal"
                     android:textStyle="bold"
-                    android:textColor="@color/black"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="35dp" />
             </LinearLayout>
 
@@ -76,7 +76,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_alignParentTop="true"
-                    android:background="@color/editTextBG"
+                    android:background="@color/white"
                     android:hint="Username"
                     android:paddingLeft="20dp"
                     android:textSize="15sp" />
@@ -99,7 +99,7 @@
                     android:layout_height="match_parent"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="0dp"
-                    android:background="@color/editTextBG"
+                    android:background="@color/white"
                     android:hint="Password"
                     android:inputType="textPassword"
                     android:paddingLeft="20dp"

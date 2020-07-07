@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.User.UserproductActivity"
-    android:background="@color/colorPrimary">
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,7 +46,8 @@
             android:layout_gravity="center"
             android:text="all products"
             android:textAllCaps="true"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:textColor="@color/colorPrimaryDark"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_marginTop="10dp"

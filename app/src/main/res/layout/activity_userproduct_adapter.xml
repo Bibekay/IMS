@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="190dp"
             android:layout_margin="20dp"
-            android:background="@color/colorPrimary">
+            android:background="@drawable/gradiant_background">
 
             <TextView
                 android:id="@+id/tv_product_name"

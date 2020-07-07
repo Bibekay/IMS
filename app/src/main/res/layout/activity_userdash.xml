@@ -93,7 +93,7 @@
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="15dp"
                             android:hint="Search..."
-                            android:textColorHint="@color/colorPrimary"
+                            android:textColorHint="@color/colorPrimaryDark"
                             android:textColor="@color/colorPrimary" />
 
                         <ImageView
@@ -103,7 +103,7 @@
                             android:layout_centerVertical="true"
                             android:layout_marginRight="15dp"
                             android:src="@drawable/search"
-                            android:tint="@color/colorPrimary" />
+                            android:tint="@color/colorPrimaryDark" />
 
 
                     </RelativeLayout>
@@ -133,7 +133,7 @@
                                 android:layout_height="30dp"
                                 android:layout_centerInParent="true"
                                 android:src="@drawable/product"
-                                android:tint="@color/colorPrimary" />
+                                android:tint="@color/colorPrimaryDark" />
                         </RelativeLayout>
 
                         <TextView
@@ -161,7 +161,7 @@
                                 android:layout_height="30dp"
                                 android:layout_centerInParent="true"
                                 android:src="@drawable/proifle"
-                                android:tint="@color/colorPrimary" />
+                                android:tint="@color/colorPrimaryDark" />
                         </RelativeLayout>
 
                         <TextView
@@ -189,7 +189,7 @@
                                 android:layout_height="30dp"
                                 android:layout_centerInParent="true"
                                 android:src="@drawable/logout"
-                                android:tint="@color/colorPrimary" />
+                                android:tint="@color/colorPrimaryDark" />
                         </RelativeLayout>
 
                         <TextView
@@ -216,7 +216,7 @@
                                 android:layout_height="30dp"
                                 android:layout_centerInParent="true"
                                 android:src="@drawable/login"
-                                android:tint="@color/colorPrimary" />
+                                android:tint="@color/colorPrimaryDark" />
                         </RelativeLayout>
 
                         <TextView
@@ -250,11 +250,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="50dp"
-                            android:text="ALL
-                    Features
-                 products"
+                            android:text="ALL Features products"
                             android:textAllCaps="true"
-                            android:textColor="@color/white"
+                            android:textColor="@color/colorPrimaryDark"
                             android:textStyle="bold" />
 
                     </LinearLayout>
