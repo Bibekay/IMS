@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#fd4038</color>
-    <color name="colorPrimaryDark">#fd4139</color>
+    <color name="colorPrimary">#fccb90</color>
+    <color name="colorPrimaryDark">#d57eeb</color>
     <color name="colorAccent">#FF4081</color>
     <color name="black">#000000</color>
     <color name="transparent">#00000000</color>
     <color name="editTextBG">#DADADA</color>
-    <color name="white">#fdfdfd</color>
+    <color name="white">#ebedee</color>
 
     <color name="textColor">#6e6e6e</color>
-    <color name="product_back">#f7f1a0</color>
+    <color name="product_back">#d57eeb</color>
 
 </resources>

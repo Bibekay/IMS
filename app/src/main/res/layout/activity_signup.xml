@@ -2,12 +2,14 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:background="@drawable/gradiant_background">
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".activities.User.SignupActivity">
 
         <androidx.cardview.widget.CardView
@@ -25,7 +27,8 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@drawable/gradiant_background">
 
 
 
@@ -33,7 +36,7 @@
                     android:id="@+id/linearLayoutTop"
                     android:layout_width="match_parent"
                     android:layout_height="120dp"
-                    android:background="@color/colorPrimary"
+                    android:background="@drawable/gradiant_background"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -47,7 +50,7 @@
                         android:fontFamily="sans-serif-medium"
                         android:text="Mero Pasal"
                         android:textStyle="bold"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:textSize="35dp"
                         tools:ignore="HardcodedText" />
 

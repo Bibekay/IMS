@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_margin="10dp"
+    android:background="@color/white"
     tools:context=".adapter.UserproductAdapter">
 
     <RelativeLayout
@@ -18,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="190dp"
             android:layout_margin="20dp"
-            android:background="@color/product_back">
+            android:background="@color/colorPrimary">
 
             <TextView
                 android:id="@+id/tv_product_name"
