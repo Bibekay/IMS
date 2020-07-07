@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.meropasal.MainActivity;
 import com.example.meropasal.R;
+import com.example.meropasal.activities.admin.AdminaddproductActivity;
 import com.example.meropasal.activities.admin.AdminhomeActivity;
 import com.example.meropasal.bll.LoginBLL;
 import com.example.meropasal.strictmode.StrictModeClass;
@@ -49,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
 
             private void openSignup() {
 
-                Intent openSignup = new Intent(LoginActivity.this, SignupActivity.class);
+                Intent openSignup = new Intent(LoginActivity.this, AdminaddproductActivity.class);
                 startActivity(openSignup);
             }
 
