@@ -53,7 +53,7 @@
             android:padding="10dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/civ_addproduct"
+                android:id="@+id/civ_productImage"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_below="@+id/imageViewTop"
@@ -67,7 +67,7 @@
                 android:id="@+id/relativeLayoutCategory"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_below="@+id/civ_addproduct"
+                android:layout_below="@+id/civ_productImage"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="30dp">

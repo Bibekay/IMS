@@ -8,13 +8,21 @@ public class Products {
     private String price;
     private boolean expandable;
 
-    public Products(String product_name, String product_image, String description, String price, boolean expandable) {
+    public Products(String product_name, String description, String price,  String product_image, boolean expandable) {
         this.product_name = product_name;
-        this.product_image = product_image;
+
         this.description = description;
         this.price = price;
+        this.product_image = product_image;
         this.expandable = expandable;
     }
+
+//    public Products(String product_name,  String description, String price, String product_image) {
+//        this.product_name = product_name;
+//        this.description = description;
+//        this.price = price;
+//        this.product_image = product_image;
+//    }
 
     public String getProduct_name() {
         return product_name;

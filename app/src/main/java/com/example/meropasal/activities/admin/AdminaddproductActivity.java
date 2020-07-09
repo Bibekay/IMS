@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.meropasal.R;
+import com.example.meropasal.activities.User.UserprofileActivity;
 import com.example.meropasal.api.IMS_api;
 import com.example.meropasal.models.Products;
 import com.example.meropasal.serverresponse.ImageResponse;
@@ -40,8 +41,8 @@ public class AdminaddproductActivity extends AppCompatActivity {
     CircleImageView productImage;
     ImageView back;
     Button addProduct;
-    String imagePath;
-    private String imageName = "";
+    String imagePath, imageName;
+    private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 200;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +50,7 @@ public class AdminaddproductActivity extends AppCompatActivity {
         setContentView(R.layout.activity_adminaddproduct);
         categoryName = findViewById(R.id.et_category);
         productName = findViewById(R.id.et_productName);
-        productImage = findViewById(R.id.civ_addproduct);
+        productImage = findViewById(R.id.civ_productImage);
         productDescription = findViewById(R.id.et_description);
         productPrice = findViewById(R.id.et_price);
         addProduct = findViewById(R.id.btnAddProduct);
@@ -65,47 +66,17 @@ public class AdminaddproductActivity extends AppCompatActivity {
 
         //retriving single data through recycle view from admincategories adapter //
         Bundle bundle = getIntent().getExtras();
-        if(bundle !=null ){
+        if (bundle != null) {
             id = bundle.getString("id");
             categoryName.setText(bundle.getString("category_name"));
         }
 
 
-
         addProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                postProduct();
                 saveImageOnly();
-            }
-
-            private void postProduct() {
-                String category = id;
-                String product_name = productName.getText().toString();
-                String description = productDescription.getText().toString();
-                String price = productPrice.getText().toString();
-
-                IMS_api ims_api = url.getInstance().create(IMS_api.class);
-                Call<Products> productsCall = ims_api.addProducts(url.token,category,product_name,imageName, description,price);
-
-                productsCall.enqueue(new Callback<Products>() {
-                    @Override
-                    public void onResponse(Call<Products> call, Response<Products> response) {
-                        if(!response.isSuccessful()) {
-                            Toast.makeText(AdminaddproductActivity.this, "Error", Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                        Toast.makeText(AdminaddproductActivity.this, "Product  Added", Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onFailure(Call<Products> call, Throwable t) {
-                        Toast.makeText(AdminaddproductActivity.this, "Error"  , Toast.LENGTH_SHORT).show();
-
-                    }
-                });
-
-
+                postProduct();
 
             }
         });
@@ -118,60 +89,108 @@ public class AdminaddproductActivity extends AppCompatActivity {
         });
 
 
+    }
+    private void saveImageOnly() {
+
+        if (imagePath != null) {
+            File file = new File(imagePath);
+            RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+            MultipartBody.Part body = MultipartBody.Part.createFormData("imageFile", file.getName(), requestBody);
+
+            IMS_api ims_api = url.getInstance().create(IMS_api.class);
+            Call<ImageResponse> imageResponseCall = ims_api.uploadProductImage(url.token, body);
+
+
+            StrictModeClass.StrictMode();
+
+            try {
+                Response<ImageResponse> imageResponseResponse = imageResponseCall.execute();
+                imageName = imageResponseResponse.body().getFilename();
+            } catch (IOException e) {
+                Toast.makeText(AdminaddproductActivity.this, "Error" + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                e.printStackTrace();
+            }
+        } else {
+            Toast.makeText(AdminaddproductActivity.this, "Please choose file to update picture", Toast.LENGTH_SHORT).show();
+        }
 
 
     }
+
+
     private void BrowseImage() {
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");
-        startActivityForResult(intent, 0);
+        startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode == RESULT_OK) {
-            if (data == null) {
-                Toast.makeText(this, "Please select an image ", Toast.LENGTH_SHORT).show();
+        if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
+            if (resultCode == RESULT_OK && data!=null) {
+
+                Uri uri = data.getData();
+                productImage.setImageURI(uri);
+                imagePath = getRealPathFromUri(uri);
+
+            } else {
+                Toast.makeText(AdminaddproductActivity.this, "Please select an image ", Toast.LENGTH_SHORT).show();
             }
+        } else {
+            Toast.makeText(AdminaddproductActivity.this, "image couldnot upload", Toast.LENGTH_SHORT).show();
         }
-        Uri uri = data.getData();
-        productImage.setImageURI(uri);
-        imagePath = getRealPathFromUri(uri);
     }
 
     private String getRealPathFromUri(Uri uri) {
-        String[] projection = {MediaStore.Images.Media.DATA};
-        CursorLoader loader = new CursorLoader(getApplicationContext(),
-                uri, projection, null, null, null);
+        String[] proj = {MediaStore.Images.Media.DATA};
+        CursorLoader loader = new CursorLoader(AdminaddproductActivity.this.getApplicationContext(), uri, proj, null, null, null);
+
         Cursor cursor = loader.loadInBackground();
         int colIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
         cursor.moveToFirst();
-        String result = cursor.getString(colIndex);
+        String res = cursor.getString(colIndex);
         cursor.close();
-        return result;
+        return res;
     }
 
-    private void saveImageOnly() {
-        File file = new File(imagePath);
-        RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
-        MultipartBody.Part body = MultipartBody.Part.createFormData("imageFile",
-                file.getName(), requestBody);
+
+
+    //method to connect databse and post data//
+    private void postProduct() {
+        String category = id;
+        String product_name = productName.getText().toString();
+        String description = productDescription.getText().toString();
+        String price = productPrice.getText().toString();
+
+
 
         IMS_api ims_api = url.getInstance().create(IMS_api.class);
-        Call<ImageResponse> responseBodyCall = ims_api.uploadProductImage(url.token, body);
+        Call<Products> productsCall = ims_api.addProducts(url.token, category, product_name, description, price, imageName);
 
-        StrictModeClass.StrictMode();
-        //Synchronous method
-        try {
-            Response<ImageResponse> imageResponseResponse = responseBodyCall.execute();
-            imageName = imageResponseResponse.body().getFilename();
-            Toast.makeText(this, "Image inserted" + imageName, Toast.LENGTH_SHORT).show();
-        } catch (IOException e) {
-            Toast.makeText(this, "Error" + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-            e.printStackTrace();
-        }
+        productsCall.enqueue(new Callback<Products>() {
+            @Override
+            public void onResponse(Call<Products> call, Response<Products> response) {
+                if (!response.isSuccessful()) {
+                    Toast.makeText(AdminaddproductActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else {
+                    Toast.makeText(AdminaddproductActivity.this, "Product  Added", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<Products> call, Throwable t) {
+                Toast.makeText(AdminaddproductActivity.this, "Error", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
     }
+
 
 }
