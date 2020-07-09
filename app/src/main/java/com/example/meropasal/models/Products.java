@@ -1,20 +1,20 @@
 package com.example.meropasal.models;
 
 public class Products {
+    public Categories category;
     private String product_name;
     private String product_image;
     private String description;
     private String price;
     private boolean expandable;
 
-    public Products(String product_name, String product_image, String description, String price) {
+    public Products(String product_name, String product_image, String description, String price, boolean expandable) {
         this.product_name = product_name;
         this.product_image = product_image;
         this.description = description;
         this.price = price;
-        this.expandable = false;
+        this.expandable = expandable;
     }
-
 
     public String getProduct_name() {
         return product_name;
@@ -54,5 +54,14 @@ public class Products {
 
     public void setExpandable(boolean expandable) {
         this.expandable = expandable;
+    }
+
+
+    public Categories getCategory() {
+        return category;
+    }
+
+    public void setCategory(Categories category) {
+        this.category = category;
     }
 }

@@ -93,7 +93,7 @@ public class AdmincategoryAdapter extends RecyclerView.Adapter<AdmincategoryAdap
 
             categoryName = itemView.findViewById(R.id.tv_categoryname);
             categoryImage = itemView.findViewById(R.id.cv_category);
-            add_product = itemView.findViewById(R.id.btnaddProduct);
+            add_product = itemView.findViewById(R.id.btn_Product);
 
 
         }

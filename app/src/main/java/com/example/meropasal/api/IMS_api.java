@@ -49,10 +49,26 @@ public interface IMS_api {
     @GET("categories/category")
     Call<List<Categories>> getCategories(@Header("Authorization") String token);
 
+
+
     //For Products model //
+    @Multipart
+    @POST ("upload/product")
+    Call <ImageResponse> uploadProductImage(@Header("Authorization") String token, @Part MultipartBody.Part file);
+
+    @FormUrlEncoded
+    @POST("products/product")
+    Call<Products> addProducts(@Header("Authorization") String token,
+                               @Field("category") String category,
+                               @Field("product_name") String product_name,
+                               @Field("product_image") String product_image,
+                               @Field("description") String description,
+                               @Field("price") String price);
+
+
+
 
     @GET("products/product")
     Call<List<Products>> getProducts(@Header("Authorization") String token);
-
-
+    ;
 }
