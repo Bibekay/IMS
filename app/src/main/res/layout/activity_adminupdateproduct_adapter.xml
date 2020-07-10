@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".adapter.AdminupdateproductAdapter">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="3dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradiant_background"
+            android:padding="10dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/civ_productImage"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_below="@+id/imageViewTop"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:importantForAccessibility="no"
+                android:rotation="45"
+                android:src="@drawable/rice" />
+
+
+            <RelativeLayout
+                android:id="@+id/rlProductName"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/civ_productImage"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp">
+
+                <TextView
+                    android:id="@+id/tv_productName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="Product"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    tools:ignore="HardcodedText,RtlSymmetry" />
+
+
+                <EditText
+                    android:id="@+id/et_productName"
+                    android:layout_width="220dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toEndOf="@+id/tv_productName"
+                    android:background="@color/white"
+                    android:hint="Product Name"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    tools:ignore="HardcodedText,RtlSymmetry" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rlDescription"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@+id/rlProductName"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp">
+
+                <TextView
+                    android:id="@+id/tv_Descritption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="Descritption"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    tools:ignore="HardcodedText,RtlSymmetry" />
+
+
+                <EditText
+                    android:id="@+id/et_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toEndOf="@+id/tv_Descritption"
+                    android:background="@color/white"
+                    android:hint="Description"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    tools:ignore="HardcodedText,RtlSymmetry" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rlPrice"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/rlDescription"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp">
+
+                <TextView
+                    android:id="@+id/tv_Price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="Price"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    tools:ignore="HardcodedText,RtlSymmetry" />
+
+
+                <EditText
+                    android:id="@+id/et_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toEndOf="@+id/tv_Price"
+                    android:background="@color/white"
+                    android:hint="Price"
+                    android:inputType="number"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    tools:ignore="HardcodedText,RtlSymmetry" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlButtons"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/rlPrice"
+                android:layout_marginTop="20dp">
+
+
+                <Button
+                    android:id="@+id/btnAddUpdateProduct"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custombutton"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Update"
+                    android:textColor="@color/black"
+                    tools:ignore="HardcodedText" />
+
+
+                <Button
+                    android:id="@+id/btnAddDeleteProduct"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/custombutton"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Delete"
+                    android:textColor="@color/black"
+                    tools:ignore="HardcodedText" />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>
