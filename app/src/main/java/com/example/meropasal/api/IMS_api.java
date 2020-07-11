@@ -1,6 +1,7 @@
 package com.example.meropasal.api;
 
 import com.example.meropasal.models.Categories;
+import com.example.meropasal.models.Orders;
 import com.example.meropasal.models.Products;
 import com.example.meropasal.models.Users;
 import com.example.meropasal.serverresponse.ImageResponse;
@@ -74,6 +75,14 @@ public interface IMS_api {
     @PUT("products/{id}/Update")
     Call<Products> updateProduct(@Header("Authorization") String token, @Path ("id") String id, @Body Products products);
 
+
+
+    //for model orders//
+
+    @FormUrlEncoded
+    @POST("orders/order")
+    Call<Orders> oderProduct(@Header("Authorization") String token,
+                             @Field("product") String product);
 
 
 }
