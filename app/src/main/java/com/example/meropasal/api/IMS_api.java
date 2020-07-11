@@ -11,6 +11,7 @@ import java.util.List;
 import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -19,6 +20,7 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Part;
+import retrofit2.http.Path;
 
 public interface IMS_api {
     //  for Users model //
@@ -53,7 +55,7 @@ public interface IMS_api {
     @POST("upload/product")
     Call<ImageResponse> uploadProductImage(@Header("Authorization") String token, @Part MultipartBody.Part file);
 
-        @FormUrlEncoded
+    @FormUrlEncoded
     @POST("products/product")
     Call<Products> addProducts(@Header("Authorization") String token,
                                @Field("category") String category,
@@ -61,9 +63,17 @@ public interface IMS_api {
                                @Field("description") String description,
                                @Field("price") String price,
                                @Field("product_image") String product_image);
-////    @POST("products/product")
+
+
+    @DELETE("products/deleteProduct/{id}/")
+    Call<Products> DeleteProduct(@Header("Authorization") String token, @Path("id") String id);
+
+    ////    @POST("products/product")
 //    Call<Products> addProducts(@Body Categories categories);
 //
+    @PUT("products/{id}/Update")
+    Call<Products> updateProduct(@Header("Authorization") String token, @Path ("id") String id, @Body Products products);
+
 
     @GET("products/product")
     Call<List<Products>> getProducts(@Header("Authorization") String token);

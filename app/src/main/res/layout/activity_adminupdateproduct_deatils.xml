@@ -7,7 +7,34 @@
     android:layout_margin="10dp"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".adapter.AdminupdateproductAdapter">
+    tools:context=".activities.admin.AdminupdateproductDeatilsActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize">
+
+
+        <ImageView
+            android:id="@+id/iv_backpressed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_back"
+            android:padding="10dp"
+            android:tint="@color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="UPDATE PRODUCT"
+            android:textColor="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="30sp"
+            />
+
+
+
+    </RelativeLayout>
 
 
     <androidx.cardview.widget.CardView
@@ -165,17 +192,26 @@
 
 
                 <Button
-                    android:id="@+id/btnAddUpdateProduct"
-                    android:layout_width="match_parent"
+                    android:id="@+id/btnSave"
+                    android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:background="@drawable/custombutton"
                     android:fontFamily="sans-serif-medium"
-                    android:text="Update"
+                    android:text="Save"
                     android:textColor="@color/black"
                     tools:ignore="HardcodedText" />
 
 
-
+                <Button
+                    android:id="@+id/btnAddDeleteProduct"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/custombutton"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Delete"
+                    android:textColor="@color/black"
+                    tools:ignore="HardcodedText" />
 
             </RelativeLayout>
 
