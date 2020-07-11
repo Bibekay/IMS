@@ -4,13 +4,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.meropasal.R;
+import com.example.meropasal.activities.User.UserorderActivity;
 import com.example.meropasal.models.Products;
 import com.squareup.picasso.Picasso;
 
@@ -57,6 +60,22 @@ public class UserproductAdapter extends RecyclerView.Adapter <UserproductAdapter
             holder.description.setText(products.getDescription());
             holder.price.setText(products.getPrice());
 
+            holder.order.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent openOderActivity = new Intent(mContext, UserorderActivity.class);
+                    openOderActivity.putExtra("id", products.get_id());
+                    openOderActivity.putExtra("product_name",products.getProduct_name());
+                    openOderActivity.putExtra("description",products.getDescription());
+                    openOderActivity.putExtra("price",products.getPrice());
+                    openOderActivity.putExtra("image", products.getProduct_image());
+
+                    mContext.startActivity(openOderActivity);
+
+
+                }
+            });
+
 
         }
 
@@ -69,6 +88,7 @@ public class UserproductAdapter extends RecyclerView.Adapter <UserproductAdapter
 
             ImageView productImage;
             TextView productName, description, price;
+            Button order;
 
             public UserproductViewHolder(@NonNull View itemView) {
                 super(itemView);
@@ -78,6 +98,7 @@ public class UserproductAdapter extends RecyclerView.Adapter <UserproductAdapter
                 productName = itemView.findViewById(R.id.tv_product_name);
                 description = itemView.findViewById(R.id.tv_description);
                 price = itemView.findViewById(R.id.tv_price);
+                order = itemView.findViewById(R.id.btnOrder);
 
 
             }

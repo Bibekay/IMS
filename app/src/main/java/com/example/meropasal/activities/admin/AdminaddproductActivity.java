@@ -48,6 +48,7 @@ public class AdminaddproductActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adminaddproduct);
+
         categoryName = findViewById(R.id.et_category);
         productName = findViewById(R.id.et_productName);
         productImage = findViewById(R.id.civ_productImage);
@@ -173,19 +174,17 @@ public class AdminaddproductActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Products> call, Response<Products> response) {
                 if (!response.isSuccessful()) {
-                    Toast.makeText(AdminaddproductActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AdminaddproductActivity.this, "Code : " + response.code() + ", Message : " + response.message(), Toast.LENGTH_SHORT).show();
                     return;
                 }
-                else {
-                    Toast.makeText(AdminaddproductActivity.this, "Product  Added", Toast.LENGTH_SHORT).show();
-                }
+                Intent intent = new Intent(AdminaddproductActivity.this, AdminupdateproductActivity.class);
+                startActivity(intent);
 
             }
 
             @Override
             public void onFailure(Call<Products> call, Throwable t) {
-                Toast.makeText(AdminaddproductActivity.this, "Error", Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(AdminaddproductActivity.this, "Code" +t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 

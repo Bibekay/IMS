@@ -16,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.admin.AdminupdateproductDeatilsActivity"></activity>
+        <activity android:name=".activities.User.UserorderActivity"></activity>
+        <activity android:name=".activities.admin.AdminupdateproductDeatilsActivity" />
         <activity android:name=".adapter.AdminupdateproductAdapter" />
         <activity android:name=".activities.admin.AdminupdateproductActivity" />
         <activity android:name=".adapter.AdmincategoryAdapter" />

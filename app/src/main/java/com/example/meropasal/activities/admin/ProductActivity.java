@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -47,8 +48,8 @@ public class ProductActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                ProductActivity.super.onBackPressed();
+                Intent intent = new Intent(ProductActivity.this, AdminhomeActivity.class);
+                startActivity(intent);
             }
         });
 

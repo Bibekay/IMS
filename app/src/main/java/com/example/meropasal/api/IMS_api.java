@@ -64,19 +64,16 @@ public interface IMS_api {
                                @Field("price") String price,
                                @Field("product_image") String product_image);
 
+    @GET("products/product")
+    Call<List<Products>> getProducts(@Header("Authorization") String token);
+
 
     @DELETE("products/deleteProduct/{id}/")
     Call<Products> DeleteProduct(@Header("Authorization") String token, @Path("id") String id);
 
-    ////    @POST("products/product")
-//    Call<Products> addProducts(@Body Categories categories);
-//
     @PUT("products/{id}/Update")
     Call<Products> updateProduct(@Header("Authorization") String token, @Path ("id") String id, @Body Products products);
 
 
-    @GET("products/product")
-    Call<List<Products>> getProducts(@Header("Authorization") String token);
 
-    ;
 }

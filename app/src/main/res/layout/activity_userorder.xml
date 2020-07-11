@@ -3,11 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:background="@color/white"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activities.admin.AdminupdateproductDeatilsActivity">
+    tools:context=".activities.User.UserorderActivity">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:background="@color/white"
@@ -26,7 +25,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="UPDATE PRODUCT"
+            android:text="Order"
             android:textColor="@color/colorPrimaryDark"
             android:gravity="center"
             android:fontFamily="sans-serif-medium"
@@ -90,7 +89,7 @@
                     tools:ignore="HardcodedText,RtlSymmetry" />
 
 
-                <EditText
+                <TextView
                     android:id="@+id/et_productName"
                     android:layout_width="220dp"
                     android:layout_height="match_parent"
@@ -129,7 +128,7 @@
                     tools:ignore="HardcodedText,RtlSymmetry" />
 
 
-                <EditText
+                <TextView
                     android:id="@+id/et_description"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -168,7 +167,7 @@
                     tools:ignore="HardcodedText,RtlSymmetry" />
 
 
-                <EditText
+                <TextView
                     android:id="@+id/et_price"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -193,24 +192,24 @@
 
 
                 <Button
-                    android:id="@+id/btnSave"
+                    android:id="@+id/btnConformOrder"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:background="@drawable/custombutton"
                     android:fontFamily="sans-serif-medium"
-                    android:text="Save"
+                    android:text="Conform"
                     android:textColor="@color/black"
                     tools:ignore="HardcodedText" />
 
 
                 <Button
-                    android:id="@+id/btnAddDeleteProduct"
+                    android:id="@+id/btnAddtoCart"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:layout_alignParentEnd="true"
                     android:background="@drawable/custombutton"
                     android:fontFamily="sans-serif-medium"
-                    android:text="Delete"
+                    android:text="CART"
                     android:textColor="@color/black"
                     tools:ignore="HardcodedText" />
 

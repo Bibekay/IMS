@@ -5,10 +5,10 @@ public class Categories {
     private String category_image;
     private String _id;
 
-    public Categories(String category_name, String category_image, String _id) {
+    public Categories(String category_name, String category_image) {
         this.category_name = category_name;
         this.category_image = category_image;
-        this._id = _id;
+
     }
 
     public String getCategory_name() {

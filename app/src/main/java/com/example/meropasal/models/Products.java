@@ -25,11 +25,6 @@ public class Products {
         this.product_image = product_image;
     }
 
-    public Products(String product_name, String description, String price) {
-        this.product_name = product_name;
-        this.description = description;
-        this.price = price;
-    }
 
     public String getProduct_name() {
         return product_name;

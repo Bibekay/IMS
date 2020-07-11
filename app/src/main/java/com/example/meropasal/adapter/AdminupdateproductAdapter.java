@@ -80,72 +80,6 @@ public class AdminupdateproductAdapter extends RecyclerView.Adapter<Adminupdatep
 
             }
         });
-//
-//            private void updateProducts() {
-//                Products products = new Products(
-//                        holder.productName.getText().toString(),
-//                        holder.description.getText().toString(),
-//                        holder.price.getText().toString()
-//                );
-//
-//                IMS_api ims_api = url.getInstance().create(IMS_api.class);
-//                Call<Products> prouductCall = ims_api.updateProduct(url.token, id, products);
-//
-//                prouductCall.enqueue(new Callback<Products>() {
-//                    @Override
-//                    public void onResponse(Call<Products> call, Response<Products> response) {
-//                        if (!response.isSuccessful()) {
-//                            Toast.makeText(mContext, "Code : " + response.code() + ", Message : " + response.message(), Toast.LENGTH_SHORT).show();
-//                            return;
-//                        }
-//                        Toast.makeText(mContext, "Updated !!!", Toast.LENGTH_SHORT).show();
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<Products> call, Throwable t) {
-//                        Toast.makeText(mContext, "Error " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-//
-//                    }
-//                });
-//
-//            }
-//        });
-//        holder.deleteProduct.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//               // productsupdatesList.remove(i);
-//               // delete();
-//
-//            }
-//            private void delete() {
-//
-//
-//                IMS_api ims_api = url.getInstance().create(IMS_api.class);
-//                Call<Products> voidCall = ims_api.DeleteProduct(url.token, id);
-//
-//                voidCall.enqueue(new Callback<Products>() {
-//                    @Override
-//                    public void onResponse(Call<Products> call, Response<Products> response) {
-//
-//                        if (!response.isSuccessful()) {
-//                            Toast.makeText(mContext, "Code : " + response.code() + ", Message : " + response.message(), Toast.LENGTH_SHORT).show();
-//                            return;
-//                        }
-//                        Toast.makeText(mContext, "Deleted !!!", Toast.LENGTH_SHORT).show();
-//
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<Products> call, Throwable t) {
-//                        Toast.makeText(mContext, "Error " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//
-//
-//            }
-
-//
-//
 }
 
     @Override
@@ -155,21 +89,20 @@ public class AdminupdateproductAdapter extends RecyclerView.Adapter<Adminupdatep
 
     public class AdminupdateproductViewHolder extends RecyclerView.ViewHolder {
 
-        CircleImageView productImage;
+        ImageView productImage;
         TextView productName, description, price;
-        Button deleteProduct, btnUpdate;
+        Button btnUpdate;
 
 
         public AdminupdateproductViewHolder(@NonNull View itemView) {
             super(itemView);
 
 
-            productImage = itemView.findViewById(R.id.civ_productImage);
-            productName = itemView.findViewById(R.id.et_productName);
-            description = itemView.findViewById(R.id.et_description);
-            price = itemView.findViewById(R.id.et_price);
-            deleteProduct = itemView.findViewById(R.id.btnAddDeleteProduct);
-            btnUpdate = itemView.findViewById(R.id.btnAddUpdateProduct);
+            productImage = itemView.findViewById(R.id.iv_productimage);
+            productName = itemView.findViewById(R.id.tv_product_name);
+            description = itemView.findViewById(R.id.tv_description);
+            price = itemView.findViewById(R.id.tv_price);
+            btnUpdate = itemView.findViewById(R.id.btnAddProductUpdate);
 
 
         }
