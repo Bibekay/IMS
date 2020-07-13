@@ -3,9 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_margin="10dp"
-    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".activities.admin.AdminupdateproductDeatilsActivity">
     <RelativeLayout
@@ -24,27 +23,34 @@
             android:tint="@color/black" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="UPDATE PRODUCT"
             android:textColor="@color/colorPrimaryDark"
             android:gravity="center"
+            android:layout_centerHorizontal="true"
             android:fontFamily="sans-serif-medium"
             android:textSize="30sp"
             />
 
 
+        <ImageView
+            android:id="@+id/iv_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_delete"
+            android:layout_alignParentEnd="true"
+            android:padding="10dp"
+            android:tint="@color/black" />
 
     </RelativeLayout>
 
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_height="481dp"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="3dp"
         app:cardPreventCornerOverlap="false"
@@ -52,17 +58,16 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="@drawable/gradiant_background"
             android:padding="10dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/civ_productImage"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
                 android:layout_below="@+id/imageViewTop"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
                 android:importantForAccessibility="no"
                 android:rotation="45"
                 android:src="@drawable/rice" />
@@ -184,43 +189,35 @@
 
             </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/rlButtons"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_below="@+id/rlPrice"
-                android:layout_marginTop="20dp">
 
+<!--&lt;!&ndash;                <Button&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:id="@+id/btnAddDeleteProduct"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="100dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_alignParentEnd="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:background="@drawable/custombutton"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:fontFamily="sans-serif-medium"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:text="Delete"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:textColor="@color/black"&ndash;&gt;-->
+<!--&lt;!&ndash;                    tools:ignore="HardcodedText" />&ndash;&gt;-->
 
-                <Button
-                    android:id="@+id/btnSave"
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/custombutton"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="Save"
-                    android:textColor="@color/black"
-                    tools:ignore="HardcodedText" />
-
-
-                <Button
-                    android:id="@+id/btnAddDeleteProduct"
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentEnd="true"
-                    android:background="@drawable/custombutton"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="Delete"
-                    android:textColor="@color/black"
-                    tools:ignore="HardcodedText" />
-
-            </RelativeLayout>
+<!--            </RelativeLayout>-->
 
 
         </RelativeLayout>
 
 
+
+
     </androidx.cardview.widget.CardView>
 
-
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/custombutton"
+        android:fontFamily="sans-serif-medium"
+        android:text="Save"
+        android:textColor="@color/black"
+        tools:ignore="HardcodedText" />
 </LinearLayout>

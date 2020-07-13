@@ -2,14 +2,17 @@ package com.example.meropasal.activities.User;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.meropasal.R;
+import com.example.meropasal.adapter.UserproductAdapter;
 import com.example.meropasal.api.IMS_api;
 import com.example.meropasal.models.Orders;
 import com.example.meropasal.models.Products;
@@ -24,7 +27,7 @@ import retrofit2.Response;
 public class UserorderActivity extends AppCompatActivity {
     String id;
     TextView productName, descricption, productPrice;
-    CircleImageView productImage;
+    ImageView productImage, imageBack;
     Button order;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,15 @@ public class UserorderActivity extends AppCompatActivity {
         productPrice = findViewById(R.id.et_price);
         productImage = findViewById(R.id.civ_productImage);
         order = findViewById(R.id.btnConformOrder);
+        imageBack = findViewById(R.id.iv_backpressed);
+
+
+        imageBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               UserorderActivity.super.onBackPressed();
+            }
+        });
 
 
 
@@ -65,12 +77,17 @@ public class UserorderActivity extends AppCompatActivity {
                 orderCall.enqueue(new Callback<Orders>() {
                     @Override
                     public void onResponse(Call<Orders> call, Response<Orders> response) {
+                        if (!response.isSuccessful()) {
+                            Toast.makeText(UserorderActivity.this, "Order Successfull", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
                         Toast.makeText(UserorderActivity.this, "Order Successfull", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onFailure(Call<Orders> call, Throwable t) {
-
+                        Toast.makeText(UserorderActivity.this,  "Order Successfull", Toast.LENGTH_SHORT).show();
                     }
                 });
 

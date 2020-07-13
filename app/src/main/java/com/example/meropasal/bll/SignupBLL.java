@@ -26,7 +26,7 @@ public class SignupBLL {
             if (signupResponse.isSuccessful() &&
                     signupResponse.body().getStatus().equals("Signup Successful")) {
 
-//                url.token += signupResponse.body().getToken();
+                    url.token += signupResponse.body().getToken();
 //                // Url.Cookie = imageResponseResponse.headers().get("Set-Cookie");
                 isSuccess = true;
             }

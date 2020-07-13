@@ -23,47 +23,53 @@
             android:tint="@color/black" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Order"
             android:textColor="@color/colorPrimaryDark"
+            android:layout_centerHorizontal="true"
             android:gravity="center"
             android:fontFamily="sans-serif-medium"
             android:textSize="30sp"
             />
 
-
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_cart"
+            android:tint="@color/black"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentEnd="true"/>
 
     </RelativeLayout>
 
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="470dp"
+        android:layout_gravity="center_horizontal"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="3dp"
         app:cardPreventCornerOverlap="false"
         app:cardUseCompatPadding="true">
 
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="@drawable/gradiant_background"
-            android:padding="10dp">
+            android:layout_below="@+id/imageViewTop">
 
-            <de.hdodenhof.circleimageview.CircleImageView
+            <ImageView
                 android:id="@+id/civ_productImage"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_below="@+id/imageViewTop"
-                android:layout_centerHorizontal="true"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
                 android:layout_marginTop="10dp"
-                android:importantForAccessibility="no"
-                android:rotation="45"
+                android:layout_centerHorizontal="true"
                 android:src="@drawable/rice" />
 
 
@@ -97,6 +103,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_toEndOf="@+id/tv_productName"
                     android:background="@color/white"
+                    android:gravity="center"
                     android:hint="Product Name"
                     android:inputType="text"
                     android:textColor="@color/black"
@@ -136,6 +143,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_toEndOf="@+id/tv_Descritption"
                     android:background="@color/white"
+                    android:gravity="center"
                     android:hint="Description"
                     android:inputType="text"
                     android:textColor="@color/black"
@@ -175,6 +183,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_toEndOf="@+id/tv_Price"
                     android:background="@color/white"
+                    android:gravity="center"
                     android:hint="Price"
                     android:inputType="number"
                     android:textColor="@color/black"
@@ -183,43 +192,21 @@
 
             </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/rlButtons"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_below="@+id/rlPrice"
-                android:layout_marginTop="20dp">
-
-
-                <Button
-                    android:id="@+id/btnConformOrder"
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/custombutton"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="Conform"
-                    android:textColor="@color/black"
-                    tools:ignore="HardcodedText" />
-
-
-                <Button
-                    android:id="@+id/btnAddtoCart"
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentEnd="true"
-                    android:background="@drawable/custombutton"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="CART"
-                    android:textColor="@color/black"
-                    tools:ignore="HardcodedText" />
-
-            </RelativeLayout>
-
 
         </RelativeLayout>
 
 
     </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btnConformOrder"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/custombutton"
+        android:fontFamily="sans-serif-medium"
+        android:text="Order"
+        android:textColor="@color/black" />
 
 
 </LinearLayout>

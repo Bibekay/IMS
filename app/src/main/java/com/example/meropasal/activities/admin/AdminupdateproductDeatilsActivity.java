@@ -12,9 +12,11 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.meropasal.R;
+import com.example.meropasal.adapter.AdminupdateproductAdapter;
 import com.example.meropasal.api.IMS_api;
 import com.example.meropasal.models.Products;
 import com.example.meropasal.serverresponse.ImageResponse;
@@ -37,7 +39,8 @@ public class AdminupdateproductDeatilsActivity extends AppCompatActivity {
     String id;
     EditText productName, descricption, productPrice;
     CircleImageView productImage;
-    Button update, delete;
+    ImageView ivdelete, ivBack;
+    Button update;
     String imagePath, imageName;
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 200;
 
@@ -51,7 +54,16 @@ public class AdminupdateproductDeatilsActivity extends AppCompatActivity {
         productPrice = findViewById(R.id.et_price);
         productImage = findViewById(R.id.civ_productImage);
         update = findViewById(R.id.btnSave);
-        delete = findViewById(R.id.btnAddDeleteProduct);
+        ivdelete = findViewById(R.id.iv_delete);
+        ivBack = findViewById(R.id.iv_backpressed);
+
+
+        ivBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              AdminupdateproductDeatilsActivity.super.onBackPressed();
+            }
+        });
 
 
         //retriving single data through recycle view from admincategories adapter //
@@ -67,7 +79,7 @@ public class AdminupdateproductDeatilsActivity extends AppCompatActivity {
         }
 
 
-        delete.setOnClickListener(new View.OnClickListener() {
+        ivdelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 deleteProduct();
@@ -99,7 +111,6 @@ public class AdminupdateproductDeatilsActivity extends AppCompatActivity {
                         Toast.makeText(AdminupdateproductDeatilsActivity.this, "Error " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
-//
 
             }
         });

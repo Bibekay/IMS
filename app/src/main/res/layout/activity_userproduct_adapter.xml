@@ -56,12 +56,11 @@
             <Button
                 android:id="@+id/btnOrder"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_below="@+id/tv_price"
                 android:background="@drawable/custombutton"
                 android:fontFamily="sans-serif-medium"
-                android:text="ORDER"
-              android:layout_marginLeft="10dp"
+                android:text="VIEW MORE"
                 android:textSize="10sp"
                 android:textColor="@color/black"
                 />
