@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.User.UserproductActivity"
+    tools:context=".activities.User.UserorderdetailsActivity"
     android:background="@color/white">
 
     <LinearLayout
@@ -43,15 +44,14 @@
             android:fontFamily="sans-serif-medium"
             android:padding="10dp"
             android:layout_gravity="center"
-            android:text="all products"
+            android:text="MY ORDERS"
             android:textAllCaps="true"
             android:textSize="30sp"
             android:textColor="@color/colorPrimaryDark"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_marginTop="10dp"
-
-            android:id="@+id/rv_recentlyAddedProducts"
+            android:id="@+id/rv_myOrders"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

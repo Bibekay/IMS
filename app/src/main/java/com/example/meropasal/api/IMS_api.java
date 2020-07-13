@@ -84,5 +84,8 @@ public interface IMS_api {
     Call<Orders> oderProduct(@Header("Authorization") String token,
                              @Field("product") String product);
 
+    @GET("orders/userOrders")
+    Call<List<Orders>> getMYOrders(@Header("Authorization") String token);
+
 
 }

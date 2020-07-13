@@ -5,6 +5,22 @@ public class Orders {
     public Products product;
     public Users user;
     String order_status;
+    private boolean expandable;
+
+    public Orders(String _id, Products product, Users user, String order_status) {
+        this._id = _id;
+        this.product = product;
+        this.user = user;
+        this.order_status = order_status;
+    }
+
+    public boolean isExpandable() {
+        return expandable;
+    }
+
+    public void setExpandable(boolean expandable) {
+        this.expandable = expandable;
+    }
 
     public String get_id() {
         return _id;

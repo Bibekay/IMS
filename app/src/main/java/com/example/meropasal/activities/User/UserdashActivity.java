@@ -206,6 +206,11 @@ public class UserdashActivity extends AppCompatActivity implements NavigationVie
 
                 break;
 
+            case R.id.order:
+                startActivity(new Intent(getApplicationContext(), UserorderdetailsActivity.class));
+
+                break;
+
         }
         return true;
     }
