@@ -1,5 +1,6 @@
 package com.example.meropasal.api;
 
+import com.example.meropasal.models.Carts;
 import com.example.meropasal.models.Categories;
 import com.example.meropasal.models.Orders;
 import com.example.meropasal.models.Products;
@@ -84,8 +85,19 @@ public interface IMS_api {
     Call<Orders> oderProduct(@Header("Authorization") String token,
                              @Field("product") String product);
 
+    @GET("orders/order")
+    Call<List<Orders>> getAllOrders(@Header("Authorization") String token);
+
     @GET("orders/userOrders")
     Call<List<Orders>> getMYOrders(@Header("Authorization") String token);
+
+
+    //for model orders//
+
+    @FormUrlEncoded
+    @POST("carts/cart")
+    Call<Carts> addCart(@Header("Authorization") String token,
+                            @Field("product") String product);
 
 
 }

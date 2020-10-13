@@ -3,8 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     app:cardCornerRadius="2dp"
     app:cardElevation="3dp"
+    android:layout_margin="20dp"
+    tools:context="adapter.UserorderdetailsAdapter"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
@@ -20,7 +23,7 @@
             android:background="@color/colorPrimary">
 
             <TextView
-                android:id="@+id/tv_productname"
+                android:id="@+id/tv_product_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint=" Product Name"
@@ -29,7 +32,7 @@
                 android:textColor="@color/white"/>
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/iv_product"
+                android:id="@+id/civ_productImage"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
@@ -58,7 +61,7 @@
                 android:textColor="@color/black"/>
 
             <TextView
-                android:id="@+id/tv_product_name"
+                android:id="@+id/tv_productName"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_marginTop="10dp"
@@ -83,7 +86,7 @@
 
 
             <TextView
-                android:id="@+id/tv_description"
+                android:id="@+id/tv_Description"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:fontFamily="sans-serif-medium"
@@ -91,7 +94,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="15dp"
                 android:textSize="20sp"
-                android:layout_below="@+id/tv_product_name"
+                android:layout_below="@+id/tv_productName"
                 android:layout_toRightOf="@+id/tv_desc"
                 android:textColor="@color/black"/>
 
@@ -109,12 +112,12 @@
                 />
 
             <TextView
-                android:id="@+id/tv_price"
+                android:id="@+id/tv_Price"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_marginTop="5dp"
                 android:fontFamily="sans-serif-medium"
-                android:layout_below="@+id/tv_description"
+                android:layout_below="@+id/tv_Description"
                 android:layout_toEndOf="@+id/tv_cost"
                 android:hint=" Price"
                 android:layout_marginLeft="15dp"
@@ -140,7 +143,7 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/btnOrder"
-                android:layout_below="@+id/tv_price"
+                android:layout_below="@+id/tv_Price"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/custombutton"
                 android:fontFamily="sans-serif-medium"

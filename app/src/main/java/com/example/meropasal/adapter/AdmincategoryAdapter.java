@@ -58,7 +58,7 @@ public class AdmincategoryAdapter extends RecyclerView.Adapter<AdmincategoryAdap
 
         holder.categoryName.setText(categories.getCategory_name());
 
-        String imgPath = imagePath + categories.getCategory_image();
+      final  String imgPath = imagePath + categories.getCategory_image();
         Picasso.get().load(imgPath).into(holder.categoryImage);
 
         holder.add_product.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +67,8 @@ public class AdmincategoryAdapter extends RecyclerView.Adapter<AdmincategoryAdap
                 Intent viewProductDetails = new Intent(mContext, AdminaddproductActivity.class);
 
                 viewProductDetails.putExtra("id",categories.get_id());
+
+                viewProductDetails.putExtra("category_image", categories.getCategory_image());
                 viewProductDetails.putExtra("category_name", categories.getCategory_name());
                 mContext.startActivity(viewProductDetails);
 

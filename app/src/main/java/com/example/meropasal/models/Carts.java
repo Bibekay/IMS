@@ -3,7 +3,7 @@ package com.example.meropasal.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Orders {
+public class Carts {
 
     @SerializedName("_id")
     @Expose
@@ -23,13 +23,12 @@ public class Orders {
 
     private boolean expandable;
 
-    public Orders(String id, Users user, Product product, String order_status) {
+    public Carts(String id, Users user, Product product, String order_status) {
         this.id = id;
         this.user = user;
         this.product = product;
         this.order_status = order_status;
     }
-
     private Integer v;
 
     public String getId() {
@@ -48,14 +47,13 @@ public class Orders {
         this.user = user;
     }
 
-    public Product getProducts() {
+    public Product getProduct() {
         return product;
     }
 
-    public void setProducts(Product product) {
+    public void setProduct(Product product) {
         this.product = product;
     }
-
 
     public String getOrder_status() {
         return order_status;
@@ -80,5 +78,4 @@ public class Orders {
     public void setExpandable(boolean expandable) {
         this.expandable = expandable;
     }
-
 }

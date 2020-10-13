@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.meropasal.R;
 import com.example.meropasal.adapter.UserproductAdapter;
 import com.example.meropasal.api.IMS_api;
+import com.example.meropasal.models.Carts;
 import com.example.meropasal.models.Orders;
 import com.example.meropasal.models.Products;
 import com.example.meropasal.url.url;
@@ -27,7 +28,7 @@ import retrofit2.Response;
 public class UserorderActivity extends AppCompatActivity {
     String id;
     TextView productName, descricption, productPrice;
-    ImageView productImage, imageBack;
+    ImageView productImage, imageBack, cart;
     Button order;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class UserorderActivity extends AppCompatActivity {
         descricption = findViewById(R.id.et_description);
         productPrice = findViewById(R.id.et_price);
         productImage = findViewById(R.id.civ_productImage);
+        cart = findViewById(R.id.iv_cart);
         order = findViewById(R.id.btnConformOrder);
         imageBack = findViewById(R.id.iv_backpressed);
 
@@ -94,6 +96,37 @@ public class UserorderActivity extends AppCompatActivity {
             }
         });
 
+
+        cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                oderProduct();
+            }
+
+            private void oderProduct() {
+                String product = id;
+                IMS_api ims_api = url.getInstance().create(IMS_api.class);
+                Call<Carts> orderCall = ims_api.addCart(url.token, product);
+
+                orderCall.enqueue(new Callback<Carts>() {
+                    @Override
+                    public void onResponse(Call<Carts> call, Response<Carts> response) {
+                        if (!response.isSuccessful()) {
+                            Toast.makeText(UserorderActivity.this, "Added to cart", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        Toast.makeText(UserorderActivity.this, "Added to cart", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onFailure(Call<Carts> call, Throwable t) {
+                        Toast.makeText(UserorderActivity.this,  "Added to cart", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+            }
+        });
 
     }
 }

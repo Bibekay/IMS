@@ -101,7 +101,12 @@ public class UserprofileActivity extends AppCompatActivity {
 
                 if(imageName!=null){
                     if(etFullname.getText().toString() != null && etcontact.getText().toString() != null && etEmail.getText().toString() != null && etBirthyear.getText().toString()!=null  && etGender.getText().toString()!=null ){
-                        Users users = new Users(etFullname.getText().toString(), etcontact.getText().toString(), etEmail.getText().toString(), etBirthyear.getText().toString(),etGender.getText().toString(), imageName, 1);
+                        Users users = new Users(etFullname.getText().toString(),
+                                etcontact.getText().toString(),
+                                etEmail.getText().toString(),
+                                etBirthyear.getText().toString(),
+                                etGender.getText().toString(),
+                                imageName, 1);
                         IMS_api ims_api = url.getInstance().create(IMS_api.class);
                         Call<Users> updateInfoCall = ims_api.updateUser(url.token, users);
 

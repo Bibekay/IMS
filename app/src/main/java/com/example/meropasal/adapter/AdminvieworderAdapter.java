@@ -9,13 +9,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.meropasal.R;
 import com.example.meropasal.models.Orders;
-import com.example.meropasal.models.Products;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -25,13 +25,13 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 import static com.example.meropasal.url.url.imagePath;
 
-public class UserorderdetailsAdapter extends RecyclerView.Adapter <UserorderdetailsAdapter.UserorderdetailsViewHolder> {
+public class AdminvieworderAdapter extends RecyclerView.Adapter<AdminvieworderAdapter.AdminvieworderViewHolder> {
+
     Context mContext;
     List<Orders> ordersList;
-    private List<Orders> filterorderLists ;
+    private List<Orders> filterorderLists;
 
-
-    public UserorderdetailsAdapter(Context mContext, List<Orders> ordersList) {
+    public AdminvieworderAdapter(Context mContext, List<Orders> ordersList) {
         this.mContext = mContext;
         this.ordersList = ordersList;
         filterorderLists = new ArrayList<>(ordersList);
@@ -39,23 +39,27 @@ public class UserorderdetailsAdapter extends RecyclerView.Adapter <Userorderdeta
 
     @NonNull
     @Override
-    public UserorderdetailsAdapter.UserorderdetailsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
+    public AdminvieworderAdapter.AdminvieworderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
 
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_userorderdetails_adapter, parent, false);
-        return new UserorderdetailsViewHolder(v);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_adminvieworder_adapter, parent, false);
+        return new AdminvieworderViewHolder(v);
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull UserorderdetailsAdapter.UserorderdetailsViewHolder holder,  int i) {
+    public void onBindViewHolder(@NonNull AdminvieworderAdapter.AdminvieworderViewHolder holder, int i) {
 
         final Orders orders = ordersList.get(i);
 
-        String imgPath = imagePath+orders.getProducts().getProduct_image();
-        Picasso.get().load(imgPath).into(holder.Product_image);
+        String imgPath = imagePath + orders.getUser().getImage();
+        Picasso.get().load(imgPath).into(holder.user_image);
 
-        holder.title.setText(orders.getProducts().getProduct_name());
-        holder.name.setText(orders.getProducts().getProduct_name());
+        String imageHotel = imagePath + orders.getProducts().getProduct_image();
+        Picasso.get().load(imageHotel).into(holder.productImage);
+
+
+        holder.username.setText(orders.getUser().getUsername());
+        holder.productName.setText(orders.getProducts().getProduct_name());
         holder.descriptions.setText(orders.getProducts().getDescription());
         holder.cost.setText(orders.getProducts().getPrice());
 
@@ -65,27 +69,30 @@ public class UserorderdetailsAdapter extends RecyclerView.Adapter <Userorderdeta
 
     }
 
+
     @Override
     public int getItemCount() {
         return ordersList.size();
     }
 
-    public class UserorderdetailsViewHolder extends RecyclerView.ViewHolder {
+    public class AdminvieworderViewHolder extends RecyclerView.ViewHolder {
 
-        CircleImageView Product_image;
-        TextView name, title, descriptions, cost;
+        CircleImageView user_image;
+        ImageView productImage;
+        TextView username, productName, descriptions, cost;
         LinearLayout linearLayout;
         RelativeLayout expandableLayout;
 
-        public UserorderdetailsViewHolder(@NonNull View itemView) {
+        public AdminvieworderViewHolder(@NonNull View itemView) {
             super(itemView);
 
 
-            Product_image = itemView.findViewById(R.id.civ_productImage);
-            name = itemView.findViewById(R.id.tv_product_name);
+            user_image = itemView.findViewById(R.id.civ_userImage);
+            productImage = itemView.findViewById(R.id.iv_productImage);
+            username = itemView.findViewById(R.id.tv_username);
+            productName = itemView.findViewById(R.id.tv_poduct_name1);
             descriptions = itemView.findViewById(R.id.tv_Description);
             cost = itemView.findViewById(R.id.tv_Price);
-            title = itemView.findViewById(R.id.tv_productName);
 
 
             linearLayout = itemView.findViewById(R.id.linear_layout_adminuserinfo);
@@ -100,6 +107,5 @@ public class UserorderdetailsAdapter extends RecyclerView.Adapter <Userorderdeta
                 }
             });
         }
-
     }
 }

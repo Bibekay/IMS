@@ -70,6 +70,8 @@ public class AdminaddproductActivity extends AppCompatActivity {
         if (bundle != null) {
             id = bundle.getString("id");
             categoryName.setText(bundle.getString("category_name"));
+
+
         }
 
 

@@ -214,6 +214,11 @@ public class AdminhomeActivity extends AppCompatActivity implements NavigationVi
 
                 break;
 
+            case R.id.order:
+                startActivity(new Intent(getApplicationContext(), AdminviewordersActivity.class));
+
+                break;
+
         }
         return true;
     }
