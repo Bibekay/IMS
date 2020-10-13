@@ -16,7 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".adapter.AdminvieworderAdapter"></activity>
+        <activity android:name=".adapter.UsercartAdapter"></activity>
+        <activity android:name=".activities.User.UsercartActivity" />
+        <activity android:name=".adapter.AdminvieworderAdapter" />
         <activity android:name=".activities.admin.AdminviewordersActivity" />
         <activity android:name=".adapter.UserorderdetailsAdapter" />
         <activity android:name=".activities.User.UserorderdetailsActivity" />

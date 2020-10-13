@@ -211,6 +211,11 @@ public class UserdashActivity extends AppCompatActivity implements NavigationVie
 
                 break;
 
+            case R.id.cart:
+                startActivity(new Intent(getApplicationContext(), UsercartActivity.class));
+
+                break;
+
         }
         return true;
     }

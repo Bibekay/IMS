@@ -99,5 +99,8 @@ public interface IMS_api {
     Call<Carts> addCart(@Header("Authorization") String token,
                             @Field("product") String product);
 
+    @GET("carts/userCarts")
+    Call<List<Carts>> getMyCarts(@Header("Authorization") String token);
+
 
 }
